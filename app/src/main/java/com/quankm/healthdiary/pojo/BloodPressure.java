@@ -10,7 +10,7 @@ public class BloodPressure {
     private int Systolic;
     private int Diastolic;
     private int HeartRate;
-    private String Condition;
+    private byte Condition; // 0-Rested | 1-PostExercise
     private String DateTaken;
     private boolean isActive;
     private boolean isUpdated;
@@ -56,11 +56,11 @@ public class BloodPressure {
         HeartRate = heartRate;
     }
 
-    public String getCondition() {
+    public byte getCondition() {
         return Condition;
     }
 
-    public void setCondition(String condition) {
+    public void setCondition(byte condition) {
         Condition = condition;
     }
 

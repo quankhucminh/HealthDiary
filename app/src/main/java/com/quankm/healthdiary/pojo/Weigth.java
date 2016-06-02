@@ -6,7 +6,7 @@ package com.quankm.healthdiary.pojo;
 public class Weigth {
     private long _id;
     private long UserID;
-    private float Weight;
+    private float BodyWeight;
     private float BMI;
     private String DateTaken;
     private boolean isActive;
@@ -29,12 +29,12 @@ public class Weigth {
         UserID = userID;
     }
 
-    public float getWeight() {
-        return Weight;
+    public float getBodyWeight() {
+        return BodyWeight;
     }
 
-    public void setWeight(float weight) {
-        Weight = weight;
+    public void setBodyWeight(float bodyWeight) {
+        BodyWeight = bodyWeight;
     }
 
     public float getBMI() {

@@ -7,7 +7,9 @@ public class Medicine {
     private long _id;
     private long UserID;
     private String MedicineName;
+    private String MedicineNameClean;
     private String ActiveIngredient;
+    private String ActiveIngredientClean;
     private String Dosage;
     private boolean isAllergic;
     private boolean isActive;
@@ -84,5 +86,21 @@ public class Medicine {
 
     public void setUpdatedTimeStamp(long updatedTimeStamp) {
         UpdatedTimeStamp = updatedTimeStamp;
+    }
+
+    public String getMedicineNameClean() {
+        return MedicineNameClean;
+    }
+
+    public void setMedicineNameClean(String medicineNameClean) {
+        MedicineNameClean = medicineNameClean;
+    }
+
+    public String getActiveIngredientClean() {
+        return ActiveIngredientClean;
+    }
+
+    public void setActiveIngredientClean(String activeIngredientClean) {
+        ActiveIngredientClean = activeIngredientClean;
     }
 }

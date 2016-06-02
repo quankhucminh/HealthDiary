@@ -6,7 +6,7 @@ package com.quankm.healthdiary.pojo;
 public class BloodSugar {
     private long _id;
     private long UserID;
-    private String RecordType;
+    private byte RecordType; // 0-Normal | 1-Fasting
     private float SugarLevel;
     private String DateTaken;
     private boolean isActive;
@@ -37,11 +37,11 @@ public class BloodSugar {
         UserID = userID;
     }
 
-    public String getRecordType() {
+    public byte getRecordType() {
         return RecordType;
     }
 
-    public void setRecordType(String recordType) {
+    public void setRecordType(byte recordType) {
         RecordType = recordType;
     }
 

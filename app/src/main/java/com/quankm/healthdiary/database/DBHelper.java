@@ -62,7 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TBL_WEIGHT = "Weight";
     public static final String WEIGHT_COL_ID = "_id";
     public static final String WEIGHT_COL_USERID = "UserID";
-    public static final String WEIGHT_COL_WEIGTH = "Weight";
+    public static final String WEIGHT_COL_BODYWEIGTH = "BodyWeight";
     public static final String WEIGHT_COL_BMI = "BMI";
     public static final String WEIGHT_COL_DATETAKEN = "DateTaken";
     public static final String WEIGHT_COL_ISUPDATED = "IsUpdated";
@@ -85,7 +85,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PRESCRIPTION_COL_ID = "_id";
     public static final String PRESCRIPTION_COL_USERID = "UserID";
     public static final String PRESCRIPTION_COL_NAME = "Name";
+    public static final String PRESCRIPTION_COL_NAMECLEAN = "NameClean";
     public static final String PRESCRIPTION_COL_CONDITION = "Condition";
+    public static final String PRESCRIPTION_COL_CONDITIONCLEAN = "ConditionClean";
     public static final String PRESCRIPTION_COL_VALIDFROMDATE = "ValidFromDate";
     public static final String PRESCRIPTION_COL_VALIDTODATE = "ValidToDate";
     public static final String PRESCRIPTION_COL_ISUPDATED = "IsUpdated";
@@ -97,7 +99,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String MEDICINE_COL_ID = "_id";
     public static final String MEDICINE_COL_USERID = "UserID";
     public static final String MEDICINE_COL_MEDICINENAME = "MedicineName";
+    public static final String MEDICINE_COL_MEDICINENAMECLEAN = "MedicineNameClean";
     public static final String MEDICINE_COL_ACTIVEINGREDIENT = "ActiveIngredient";
+    public static final String MEDICINE_COL_ACTIVEINGREDIENTCLEAN = "ActiveIngredientClean";
     public static final String MEDICINE_COL_DOSAGE = "Dosage";
     public static final String MEDICINE_COL_ISALLERGIC = "IsAllergic";
     public static final String MEDICINE_COL_ISUPDATED = "IsUpdated";
@@ -122,7 +126,7 @@ public class DBHelper extends SQLiteOpenHelper {
     /*Create Table Queries*/
 
 /*    //Table User
-    private String tblUserCreateQuery = "CREATE TABLE "+TBL_USER+"( " +
+    private String tblUserCreateQuery = "CREATE VIRTUAL TABLE "+TBL_USER+" USING fts4( " +
             USER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             USER_COL_EMAIL + " TEXT NOT NULL UNIQUE, " +
             USER_COL_PASSWORD + " TEXT NOT NULL, " +
@@ -149,7 +153,7 @@ public class DBHelper extends SQLiteOpenHelper {
             ")";
 
 /*    //Table Permission
-    private String tblPermissionCreateQuery = "CREATE TABLE "+TBL_PERMISSION+"( " +
+    private String tblPermissionCreateQuery = "CREATE VIRTUAL TABLE "+TBL_PERMISSION+" USING fts4( " +
             PERMISSION_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             PERMISSION_COL_USERID + " INTEGER NOT NULL, " +
             PERMISSION_COL_OBSERVERID + " INTEGER NOT NULL, " +
@@ -163,7 +167,7 @@ public class DBHelper extends SQLiteOpenHelper {
             BLOODPRESSURE_COL_SYSTOLIC + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_DIASTOLIC + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_HEARTRATE + " INTEGER NOT NULL, " +
-            BLOODPRESSURE_COL_CONDITION + " TEXT NOT NULL, " +
+            BLOODPRESSURE_COL_CONDITION + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_DATETAKEN + " TEXT, " +
             BLOODPRESSURE_COL_ISACTIVE + " INTEGER, " +
             BLOODPRESSURE_COL_ISUPDATED + " INTEGER, " +
@@ -174,7 +178,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private String tblWeightCreateQuery = "CREATE TABLE "+TBL_WEIGHT+"( " +
             WEIGHT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             WEIGHT_COL_USERID + " INTEGER NOT NULL, " +
-            WEIGHT_COL_WEIGTH + " REAL NOT NULL, " +
+            WEIGHT_COL_BODYWEIGTH + " REAL NOT NULL, " +
             WEIGHT_COL_BMI + " REAL NOT NULL, " +
             WEIGHT_COL_DATETAKEN + " TEXT, " +
             WEIGHT_COL_ISACTIVE + " INTEGER, " +
@@ -186,7 +190,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private String tblBloodSugarCreateQuery = "CREATE TABLE "+TBL_BLOODSUGAR+"( " +
             BLOODSUGAR_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             BLOODSUGAR_COL_USERID + " INTEGER NOT NULL, " +
-            BLOODSUGAR_COL_RECORDTYPE + " TEXT NOT NULL, " +
+            BLOODSUGAR_COL_RECORDTYPE + " INTEGER NOT NULL, " +
             BLOODSUGAR_COL_SUGARLEVEL + " REAL NOT NULL, " +
             BLOODSUGAR_COL_DATETAKEN + " TEXT, " +
             BLOODSUGAR_COL_ISACTIVE + " INTEGER, " +
@@ -195,11 +199,13 @@ public class DBHelper extends SQLiteOpenHelper {
             ")";
 
     //Table Prescription
-    private String tblPrescriptionCreateQuery = "CREATE TABLE "+TBL_PRESCRIPTION+"( " +
+    private String tblPrescriptionCreateQuery = "CREATE VIRTUAL TABLE "+TBL_PRESCRIPTION+" USING fts4( " +
             PRESCRIPTION_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             PRESCRIPTION_COL_USERID + " INTEGER NOT NULL, " +
             PRESCRIPTION_COL_NAME + " TEXT NOT NULL, " +
+            PRESCRIPTION_COL_NAMECLEAN + " TEXT, " +
             PRESCRIPTION_COL_CONDITION + " TEXT NOT NULL, " +
+            PRESCRIPTION_COL_CONDITIONCLEAN + " TEXT, " +
             PRESCRIPTION_COL_VALIDFROMDATE + " TEXT, " +
             PRESCRIPTION_COL_VALIDTODATE + " TEXT, " +
             PRESCRIPTION_COL_ISACTIVE + " INTEGER, " +
@@ -208,11 +214,13 @@ public class DBHelper extends SQLiteOpenHelper {
             ")";
 
     //Table Medicine
-    private String tblMedicineCreateQuery = "CREATE TABLE "+TBL_MEDICINE+"( " +
+    private String tblMedicineCreateQuery = "CREATE VIRTUAL TABLE "+TBL_MEDICINE+" USING fts4( " +
             MEDICINE_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             MEDICINE_COL_USERID + " INTEGER NOT NULL, " +
             MEDICINE_COL_MEDICINENAME + " TEXT NOT NULL, " +
+            MEDICINE_COL_MEDICINENAMECLEAN + " TEXT, " +
             MEDICINE_COL_ACTIVEINGREDIENT + " TEXT, " +
+            MEDICINE_COL_ACTIVEINGREDIENTCLEAN + " TEXT, " +
             MEDICINE_COL_DOSAGE + " TEXT, " +
             MEDICINE_COL_ISALLERGIC + " INTEGER, " +
             MEDICINE_COL_ISACTIVE + " INTEGER, " +

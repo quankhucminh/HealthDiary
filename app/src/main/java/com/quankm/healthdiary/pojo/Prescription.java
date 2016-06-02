@@ -7,7 +7,9 @@ public class Prescription {
     private long _id;
     private long UserID;
     private String Name;
+    private String NameClean;
     private String Condition;
+    private String ConditionClean;
     private String ValidFromDate;
     private String ValidToDate;
     private boolean isActive;
@@ -84,5 +86,21 @@ public class Prescription {
 
     public void setUpdatedTimeStamp(long updatedTimeStamp) {
         UpdatedTimeStamp = updatedTimeStamp;
+    }
+
+    public String getNameClean() {
+        return NameClean;
+    }
+
+    public void setNameClean(String nameClean) {
+        NameClean = nameClean;
+    }
+
+    public String getConditionClean() {
+        return ConditionClean;
+    }
+
+    public void setConditionClean(String conditionClean) {
+        ConditionClean = conditionClean;
     }
 }
