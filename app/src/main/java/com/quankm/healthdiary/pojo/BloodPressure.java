@@ -11,7 +11,7 @@ public class BloodPressure {
     private int Diastolic;
     private int HeartRate;
     private byte Condition; // 0-Rested | 1-PostExercise
-    private String DateTaken;
+    private long DateTaken;
     private boolean isActive;
     private boolean isUpdated;
     private long UpdatedTimeStamp;
@@ -64,11 +64,11 @@ public class BloodPressure {
         Condition = condition;
     }
 
-    public String getDateTaken() {
+    public long getDateTaken() {
         return DateTaken;
     }
 
-    public void setDateTaken(String dateTaken) {
+    public void setDateTaken(long dateTaken) {
         DateTaken = dateTaken;
     }
 

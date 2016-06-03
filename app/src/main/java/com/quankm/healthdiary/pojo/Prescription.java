@@ -10,8 +10,8 @@ public class Prescription {
     private String NameClean;
     private String Condition;
     private String ConditionClean;
-    private String ValidFromDate;
-    private String ValidToDate;
+    private long ValidFromDate;
+    private long ValidToDate;
     private boolean isActive;
     private boolean isUpdated;
     private long UpdatedTimeStamp;
@@ -48,19 +48,19 @@ public class Prescription {
         Condition = condition;
     }
 
-    public String getValidFromDate() {
+    public long getValidFromDate() {
         return ValidFromDate;
     }
 
-    public void setValidFromDate(String validFromDate) {
+    public void setValidFromDate(long validFromDate) {
         ValidFromDate = validFromDate;
     }
 
-    public String getValidToDate() {
+    public long getValidToDate() {
         return ValidToDate;
     }
 
-    public void setValidToDate(String validToDate) {
+    public void setValidToDate(long validToDate) {
         ValidToDate = validToDate;
     }
 

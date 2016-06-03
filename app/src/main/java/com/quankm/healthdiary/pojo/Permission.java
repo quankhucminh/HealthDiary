@@ -7,7 +7,7 @@ public class Permission {
     private long _id;
     private long UserID;
     private long ObserverID;
-    private String DateAdded;
+    private long DateAdded;
 
     public long get_id() {
         return _id;
@@ -33,11 +33,11 @@ public class Permission {
         ObserverID = observerID;
     }
 
-    public String getDateAdded() {
+    public long getDateAdded() {
         return DateAdded;
     }
 
-    public void setDateAdded(String dateAdded) {
+    public void setDateAdded(long dateAdded) {
         DateAdded = dateAdded;
     }
 }

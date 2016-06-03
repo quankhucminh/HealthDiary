@@ -8,7 +8,7 @@ public class BloodSugar {
     private long UserID;
     private byte RecordType; // 0-Normal | 1-Fasting
     private float SugarLevel;
-    private String DateTaken;
+    private long DateTaken;
     private boolean isActive;
     private boolean isUpdated;
     private long UpdatedTimeStamp;
@@ -53,11 +53,11 @@ public class BloodSugar {
         SugarLevel = sugarLevel;
     }
 
-    public String getDateTaken() {
+    public long getDateTaken() {
         return DateTaken;
     }
 
-    public void setDateTaken(String dateTaken) {
+    public void setDateTaken(long dateTaken) {
         DateTaken = dateTaken;
     }
 

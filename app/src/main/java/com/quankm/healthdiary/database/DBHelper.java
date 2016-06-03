@@ -168,7 +168,7 @@ public class DBHelper extends SQLiteOpenHelper {
             BLOODPRESSURE_COL_DIASTOLIC + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_HEARTRATE + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_CONDITION + " INTEGER NOT NULL, " +
-            BLOODPRESSURE_COL_DATETAKEN + " TEXT, " +
+            BLOODPRESSURE_COL_DATETAKEN + " INTEGER, " +
             BLOODPRESSURE_COL_ISACTIVE + " INTEGER, " +
             BLOODPRESSURE_COL_ISUPDATED + " INTEGER, " +
             BLOODPRESSURE_COL_TIMESTAMP + " INTEGER " +
@@ -180,7 +180,7 @@ public class DBHelper extends SQLiteOpenHelper {
             WEIGHT_COL_USERID + " INTEGER NOT NULL, " +
             WEIGHT_COL_BODYWEIGTH + " REAL NOT NULL, " +
             WEIGHT_COL_BMI + " REAL NOT NULL, " +
-            WEIGHT_COL_DATETAKEN + " TEXT, " +
+            WEIGHT_COL_DATETAKEN + " INTEGER, " +
             WEIGHT_COL_ISACTIVE + " INTEGER, " +
             WEIGHT_COL_ISUPDATED + " INTEGER, " +
             WEIGHT_COL_TIMESTAMP + " INTEGER " +
@@ -192,7 +192,7 @@ public class DBHelper extends SQLiteOpenHelper {
             BLOODSUGAR_COL_USERID + " INTEGER NOT NULL, " +
             BLOODSUGAR_COL_RECORDTYPE + " INTEGER NOT NULL, " +
             BLOODSUGAR_COL_SUGARLEVEL + " REAL NOT NULL, " +
-            BLOODSUGAR_COL_DATETAKEN + " TEXT, " +
+            BLOODSUGAR_COL_DATETAKEN + " INTEGER, " +
             BLOODSUGAR_COL_ISACTIVE + " INTEGER, " +
             BLOODSUGAR_COL_ISUPDATED + " INTEGER, " +
             BLOODSUGAR_COL_TIMESTAMP + " INTEGER " +
@@ -206,8 +206,8 @@ public class DBHelper extends SQLiteOpenHelper {
             PRESCRIPTION_COL_NAMECLEAN + " TEXT, " +
             PRESCRIPTION_COL_CONDITION + " TEXT NOT NULL, " +
             PRESCRIPTION_COL_CONDITIONCLEAN + " TEXT, " +
-            PRESCRIPTION_COL_VALIDFROMDATE + " TEXT, " +
-            PRESCRIPTION_COL_VALIDTODATE + " TEXT, " +
+            PRESCRIPTION_COL_VALIDFROMDATE + " INTEGER, " +
+            PRESCRIPTION_COL_VALIDTODATE + " INTEGER, " +
             PRESCRIPTION_COL_ISACTIVE + " INTEGER, " +
             PRESCRIPTION_COL_ISUPDATED + " INTEGER, " +
             PRESCRIPTION_COL_TIMESTAMP + " INTEGER " +

@@ -10,10 +10,10 @@ public class User {
     private String FirstName;
     private String LastName;
     private byte Sex;
-    private String DateOfBirth;
+    private long DateOfBirth;
     private int Height;
     private float Weight;
-    private String DateJoined;
+    private long DateJoined;
     private String CloudID;
 
     public long get_id() {
@@ -64,11 +64,11 @@ public class User {
         Sex = sex;
     }
 
-    public String getDateOfBirth() {
+    public long getDateOfBirth() {
         return DateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(long dateOfBirth) {
         DateOfBirth = dateOfBirth;
     }
 
@@ -88,11 +88,11 @@ public class User {
         Weight = weight;
     }
 
-    public String getDateJoined() {
+    public long getDateJoined() {
         return DateJoined;
     }
 
-    public void setDateJoined(String dateJoined) {
+    public void setDateJoined(long dateJoined) {
         DateJoined = dateJoined;
     }
 
