@@ -3,4 +3,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintPassword">Password</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="btnSignUp">Sign Up</string>
+    <string name="frgCreateAccountTitle">Create New Account</string>
+    <string name="hintFirstName">First Name</string>
+    <string name="hintLastName">Last Name</string>
+    <string name="txtMale">Male</string>
+    <string name="txtFemale">Female</string>
+    <string name="hintDOB">Date Of Birth</string>
+    <string name="hintPasswordConfirm">Confirm Password</string>
 </resources>
