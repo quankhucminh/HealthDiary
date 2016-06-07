@@ -1,0 +1,59 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.quankm.healthdiary.FragmentLogin"
+    android:id="@+id/constraintLayout">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:hint="Email"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:hint="Password"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout" />
+
+    <Button
+        android:text="Sign in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="@+id/editText" />
+
+    <Button
+        android:text="Sign up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        app:layout_constraintLeft_toLeftOf="@+id/editText"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button" />
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="91dp"
+        android:layout_height="90dp"
+        android:id="@+id/imageView"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        android:layout_marginBottom="56dp" />
+</android.support.constraint.ConstraintLayout>

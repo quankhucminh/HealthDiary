@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.quankm.healthdiary.database.DBHelper;
+import com.quankm.healthdiary.utils.PasswordUtil;
 
 public class ActivityLogin extends AppCompatActivity {
 
@@ -11,8 +12,6 @@ public class ActivityLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        DBHelper helper = new DBHelper(this);
-        helper.getWritableDatabase();
+        getActionBar().hide();
     }
 }

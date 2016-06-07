@@ -57,8 +57,10 @@ public class PrescriptionDAO {
             result.setUserID(c.getLong(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_USERID)));
             result.setName(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_NAME)));
             result.setNameClean(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_NAMECLEAN)));
-            result.setCondition(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_CONDITION)));
-            result.setConditionClean(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_CONDITIONCLEAN)));
+            result.setConditionName(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_CONDITIONNAME)));
+            result.setConditionNameClean(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_CONDITIONNAMECLEAN)));
+            result.setDoctorName(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_DOCTORNAME)));
+            result.setNote(c.getString(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_NOTE)));
             result.setValidFromDate(c.getLong(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_VALIDFROMDATE)));
             result.setValidToDate(c.getLong(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_VALIDTODATE)));
             result.setActive(c.getInt(c.getColumnIndex(DBHelper.PRESCRIPTION_COL_ISACTIVE)) == 1);

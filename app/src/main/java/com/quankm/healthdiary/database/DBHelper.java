@@ -52,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String BLOODPRESSURE_COL_SYSTOLIC = "Systolic";
     public static final String BLOODPRESSURE_COL_DIASTOLIC = "Diastolic";
     public static final String BLOODPRESSURE_COL_HEARTRATE = "HeartRate";
-    public static final String BLOODPRESSURE_COL_CONDITION = "Condition";
+    public static final String BLOODPRESSURE_COL_STATE = "State";
     public static final String BLOODPRESSURE_COL_DATETAKEN = "DateTaken";
     public static final String BLOODPRESSURE_COL_ISACTIVE = "IsActive";
     public static final String BLOODPRESSURE_COL_ISUPDATED = "IsUpdated";
@@ -62,7 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TBL_WEIGHT = "Weight";
     public static final String WEIGHT_COL_ID = "_id";
     public static final String WEIGHT_COL_USERID = "UserID";
-    public static final String WEIGHT_COL_BODYWEIGTH = "BodyWeight";
+    public static final String WEIGHT_COL_BODYWEIGHT = "BodyWeight";
     public static final String WEIGHT_COL_BMI = "BMI";
     public static final String WEIGHT_COL_DATETAKEN = "DateTaken";
     public static final String WEIGHT_COL_ISUPDATED = "IsUpdated";
@@ -86,8 +86,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PRESCRIPTION_COL_USERID = "UserID";
     public static final String PRESCRIPTION_COL_NAME = "Name";
     public static final String PRESCRIPTION_COL_NAMECLEAN = "NameClean";
-    public static final String PRESCRIPTION_COL_CONDITION = "Condition";
-    public static final String PRESCRIPTION_COL_CONDITIONCLEAN = "ConditionClean";
+    public static final String PRESCRIPTION_COL_CONDITIONNAME = "ConditionName";
+    public static final String PRESCRIPTION_COL_CONDITIONNAMECLEAN = "ConditionNameClean";
+    public static final String PRESCRIPTION_COL_DOCTORNAME = "DoctorName";
+    public static final String PRESCRIPTION_COL_NOTE = "Note";
     public static final String PRESCRIPTION_COL_VALIDFROMDATE = "ValidFromDate";
     public static final String PRESCRIPTION_COL_VALIDTODATE = "ValidToDate";
     public static final String PRESCRIPTION_COL_ISUPDATED = "IsUpdated";
@@ -132,13 +134,13 @@ public class DBHelper extends SQLiteOpenHelper {
             USER_COL_PASSWORD + " TEXT NOT NULL, " +
             USER_COL_FIRSTNAME + " TEXT NOT NULL, " +
             USER_COL_LASTNAME + " TEXT NOT NULL, " +
-            USER_COL_DOB + " TEXT NOT NULL, " +
+            USER_COL_DOB + " INTEGER NOT NULL, " +
             USER_COL_SEX + " INTEGER NOT NULL, " +
             USER_COL_REFERENCECODE + " TEXT, " +
             USER_COL_HEIGHT + " INTEGER, " +
             USER_COL_WEIGHT + " REAL, " +
             USER_COL_CLOUDID + " TEXT, " +
-            USER_COL_DATEJOINED + " TEXT " +
+            USER_COL_DATEJOINED + " INTEGER " +
             ")";*/
 
     //Table ChronicDisease
@@ -157,7 +159,7 @@ public class DBHelper extends SQLiteOpenHelper {
             PERMISSION_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             PERMISSION_COL_USERID + " INTEGER NOT NULL, " +
             PERMISSION_COL_OBSERVERID + " INTEGER NOT NULL, " +
-            PERMISSION_COL_DATEADDED + " TEXT " +
+            PERMISSION_COL_DATEADDED + " INTEGER " +
             ")";*/
 
     //Table BloodPressure
@@ -167,7 +169,7 @@ public class DBHelper extends SQLiteOpenHelper {
             BLOODPRESSURE_COL_SYSTOLIC + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_DIASTOLIC + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_HEARTRATE + " INTEGER NOT NULL, " +
-            BLOODPRESSURE_COL_CONDITION + " INTEGER NOT NULL, " +
+            BLOODPRESSURE_COL_STATE + " INTEGER NOT NULL, " +
             BLOODPRESSURE_COL_DATETAKEN + " INTEGER, " +
             BLOODPRESSURE_COL_ISACTIVE + " INTEGER, " +
             BLOODPRESSURE_COL_ISUPDATED + " INTEGER, " +
@@ -178,7 +180,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private String tblWeightCreateQuery = "CREATE TABLE "+TBL_WEIGHT+"( " +
             WEIGHT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             WEIGHT_COL_USERID + " INTEGER NOT NULL, " +
-            WEIGHT_COL_BODYWEIGTH + " REAL NOT NULL, " +
+            WEIGHT_COL_BODYWEIGHT + " REAL NOT NULL, " +
             WEIGHT_COL_BMI + " REAL NOT NULL, " +
             WEIGHT_COL_DATETAKEN + " INTEGER, " +
             WEIGHT_COL_ISACTIVE + " INTEGER, " +
@@ -204,8 +206,10 @@ public class DBHelper extends SQLiteOpenHelper {
             PRESCRIPTION_COL_USERID + " INTEGER NOT NULL, " +
             PRESCRIPTION_COL_NAME + " TEXT NOT NULL, " +
             PRESCRIPTION_COL_NAMECLEAN + " TEXT, " +
-            PRESCRIPTION_COL_CONDITION + " TEXT NOT NULL, " +
-            PRESCRIPTION_COL_CONDITIONCLEAN + " TEXT, " +
+            PRESCRIPTION_COL_CONDITIONNAME + " TEXT NOT NULL, " +
+            PRESCRIPTION_COL_CONDITIONNAMECLEAN + " TEXT, " +
+            PRESCRIPTION_COL_DOCTORNAME + " TEXT," +
+            PRESCRIPTION_COL_NOTE + " TEXT," +
             PRESCRIPTION_COL_VALIDFROMDATE + " INTEGER, " +
             PRESCRIPTION_COL_VALIDTODATE + " INTEGER, " +
             PRESCRIPTION_COL_ISACTIVE + " INTEGER, " +

@@ -55,7 +55,7 @@ public class WeightDAO {
             result = new Weigth();
             result.set_id(c.getLong(c.getColumnIndex(DBHelper.WEIGHT_COL_ID)));
             result.setUserID(c.getLong(c.getColumnIndex(DBHelper.WEIGHT_COL_USERID)));
-            result.setBodyWeight(c.getFloat(c.getColumnIndex(DBHelper.WEIGHT_COL_BODYWEIGTH)));
+            result.setBodyWeight(c.getFloat(c.getColumnIndex(DBHelper.WEIGHT_COL_BODYWEIGHT)));
             result.setBMI(c.getFloat(c.getColumnIndex(DBHelper.WEIGHT_COL_BMI)));
             result.setActive(c.getInt(c.getColumnIndex(DBHelper.WEIGHT_COL_ISACTIVE)) == 1);
             result.setUpdated(c.getInt(c.getColumnIndex(DBHelper.WEIGHT_COL_ISUPDATED)) == 1);

@@ -9,8 +9,6 @@ import com.quankm.healthdiary.database.DBHelper;
 import com.quankm.healthdiary.database.HealthDataProvider;
 import com.quankm.healthdiary.pojo.BloodPressure;
 
-import java.util.ArrayList;
-
 /**
  * Created by Infernocorez on 6/3/2016.
  */
@@ -60,7 +58,7 @@ public class BloodPressureDAO {
             result.setUserID(c.getLong(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_USERID)));
             result.setSystolic(c.getInt(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_SYSTOLIC)));
             result.setDiastolic(c.getInt(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_DIASTOLIC)));
-            result.setCondition((byte) c.getInt(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_CONDITION)));
+            result.setState((byte) c.getInt(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_STATE)));
             result.setHeartRate(c.getInt(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_HEARTRATE)));
             result.setDateTaken(c.getLong(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_DATETAKEN)));
             result.setActive(c.getInt(c.getColumnIndex(DBHelper.BLOODPRESSURE_COL_ISACTIVE)) == 1);

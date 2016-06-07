@@ -8,8 +8,10 @@ public class Prescription {
     private long UserID;
     private String Name;
     private String NameClean;
-    private String Condition;
-    private String ConditionClean;
+    private String ConditionName;
+    private String ConditionNameClean;
+    private String DoctorName;
+    private String Note;
     private long ValidFromDate;
     private long ValidToDate;
     private boolean isActive;
@@ -40,12 +42,28 @@ public class Prescription {
         Name = name;
     }
 
-    public String getCondition() {
-        return Condition;
+    public String getConditionName() {
+        return ConditionName;
     }
 
-    public void setCondition(String condition) {
-        Condition = condition;
+    public void setConditionName(String conditionName) {
+        ConditionName = conditionName;
+    }
+
+    public String getDoctorName() {
+        return DoctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        DoctorName = doctorName;
+    }
+
+    public String getNote() {
+        return Note;
+    }
+
+    public void setNote(String note) {
+        Note = note;
     }
 
     public long getValidFromDate() {
@@ -96,11 +114,11 @@ public class Prescription {
         NameClean = nameClean;
     }
 
-    public String getConditionClean() {
-        return ConditionClean;
+    public String getConditionNameClean() {
+        return ConditionNameClean;
     }
 
-    public void setConditionClean(String conditionClean) {
-        ConditionClean = conditionClean;
+    public void setConditionNameClean(String conditionNameClean) {
+        ConditionNameClean = conditionNameClean;
     }
 }

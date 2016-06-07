@@ -10,7 +10,7 @@ public class BloodPressure {
     private int Systolic;
     private int Diastolic;
     private int HeartRate;
-    private byte Condition; // 0-Rested | 1-PostExercise
+    private byte State; // 0-Rested | 1-PostExercise
     private long DateTaken;
     private boolean isActive;
     private boolean isUpdated;
@@ -56,12 +56,12 @@ public class BloodPressure {
         HeartRate = heartRate;
     }
 
-    public byte getCondition() {
-        return Condition;
+    public byte getState() {
+        return State;
     }
 
-    public void setCondition(byte condition) {
-        Condition = condition;
+    public void setState(byte state) {
+        State = state;
     }
 
     public long getDateTaken() {
