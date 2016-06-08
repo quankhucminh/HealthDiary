@@ -10,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.quankm.healthdiary.dao.UserDAO;
+import com.quankm.healthdiary.pojo.User;
+import com.quankm.healthdiary.utils.DateTimeUtil;
+import com.quankm.healthdiary.utils.PasswordUtil;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,6 +61,25 @@ public class FragmentCreateAccount extends Fragment implements Button.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnSignUp:
+
+                String email = edtEmail.getText().toString();
+                String password = PasswordUtil.hashPassword(edtPassword.getText().toString());
+                String firstName = edtFirstName.getText().toString();
+                String lastName = edtLastName.getText().toString();
+                long dateOfBirth = DateTimeUtil.parseDateStringToMillisecs(edtDOB.getText().toString());
+                byte sex = rdgSex.getCheckedRadioButtonId() == R.id.rdMale ?(byte) 1 :(byte) 0;
+
+                User user = new User();
+                user.setEmail(email);
+                user.setPassword(password);
+                user.setFirstName(firstName);
+                user.setLastName(lastName);
+                user.setDateOfBirth(dateOfBirth);
+                user.setSex(sex);
+
+                UserDAO userDAO = new UserDAO();
+                userDAO.insert(user);
+
                 activity.finishSignUp();
                 break;
         }

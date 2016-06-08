@@ -7,6 +7,7 @@ public class User {
     private long _id;
     private String ReferenceCode;
     private String Email;
+    private String Password;
     private String FirstName;
     private String LastName;
     private byte Sex;
@@ -38,6 +39,14 @@ public class User {
 
     public void setEmail(String email) {
         Email = email;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
     }
 
     public String getFirstName() {

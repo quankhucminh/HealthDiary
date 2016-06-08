@@ -14,7 +14,8 @@
         android:id="@+id/edtEmail"
         android:hint="@string/hintEmail"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        ><requestFocus/></EditText>
 
     <EditText
         android:layout_width="wrap_content"
