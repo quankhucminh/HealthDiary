@@ -22,7 +22,7 @@ import cz.msebera.android.httpclient.Header;
  */
 public class UserDAO {
 
-    private static final String TAG = "UserCreateResponse";
+    private static final String TAG = "quankm";
 
     public void insert(User user) {
 

@@ -24,7 +24,6 @@ public class FragmentCreateAccount extends Fragment implements Button.OnClickLis
     private Button btnSignUp;
     private EditText edtEmail;
     private EditText edtPassword;
-    private EditText edtPasswordConfirm;
     private EditText edtFirstName;
     private EditText edtLastName;
     private EditText edtDOB;
@@ -46,7 +45,6 @@ public class FragmentCreateAccount extends Fragment implements Button.OnClickLis
         btnSignUp = (Button) root.findViewById(R.id.btnSignUp);
         edtEmail = (EditText) root.findViewById(R.id.edtEmail);
         edtPassword = (EditText) root.findViewById(R.id.edtPassword);
-        edtPasswordConfirm = (EditText) root.findViewById(R.id.edtPasswordConfirm);
         edtFirstName = (EditText) root.findViewById(R.id.edtFirstName);
         edtLastName = (EditText) root.findViewById(R.id.edtLastName);
         edtDOB = (EditText) root.findViewById(R.id.edtDOB);
