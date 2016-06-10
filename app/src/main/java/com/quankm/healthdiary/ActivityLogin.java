@@ -15,6 +15,7 @@ public class ActivityLogin extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer,new FragmentLogin(),"frgLogin").commit();
+
     }
 
     public void displaySignUp(){
