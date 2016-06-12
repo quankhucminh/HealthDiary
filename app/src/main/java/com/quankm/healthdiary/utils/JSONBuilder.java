@@ -5,6 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.quankm.healthdiary.database.DBHelper;
 import com.quankm.healthdiary.pojo.User;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,6 +30,7 @@ public class JSONBuilder {
             map.put(DBHelper.USER_COL_LASTNAME, user.getLastName());
             map.put(DBHelper.USER_COL_DOB, user.getDateOfBirth() + "");
             map.put(DBHelper.USER_COL_SEX, user.getSex()+"");
+            map.put(DBHelper.USER_COL_DATEJOINED,user.getDateJoined()+"");
             list.add(map);
             Gson gson = new GsonBuilder().create();
             resultJSON = gson.toJson(list);
@@ -48,5 +52,25 @@ public class JSONBuilder {
         }
 
         return resultJSON;
+    }
+
+    public static User parseUserFromJSON(JSONObject userJSON){
+        User user = new User();
+        try {
+            user.set_id(userJSON.getLong(DBHelper.USER_COL_ID));
+            user.setEmail(userJSON.getString(DBHelper.USER_COL_EMAIL));
+            user.setFirstName(userJSON.getString(DBHelper.USER_COL_FIRSTNAME));
+            user.setLastName(userJSON.getString(DBHelper.USER_COL_LASTNAME));
+            user.setDateOfBirth(userJSON.getLong(DBHelper.USER_COL_DOB));
+            user.setDateJoined(userJSON.getLong(DBHelper.USER_COL_DATEJOINED));
+            user.setSex((byte) userJSON.getInt(DBHelper.USER_COL_SEX));
+            user.setHeight(userJSON.getInt(DBHelper.USER_COL_HEIGHT));
+            user.setWeight((float) userJSON.getDouble(DBHelper.USER_COL_WEIGHT));
+            user.setCloudID(userJSON.getString(DBHelper.USER_COL_CLOUDID));
+            user.setReferenceCode(userJSON.getString(DBHelper.USER_COL_REFERENCECODE));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

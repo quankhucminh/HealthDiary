@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="all"
+        android:id="@+id/groupMain">
+        <item
+            android:id="@+id/nav_overview"
+            android:icon="@drawable/ic_clipboard_account_black_24dp"
+            android:title="@string/nav_menu_overview" />
+        <item
+            android:id="@+id/nav_bp"
+            android:icon="@drawable/ic_heart_pulse_black_24dp"
+            android:title="@string/nav_menu_bp" />
+        <item
+            android:id="@+id/nav_weight"
+            android:icon="@drawable/ic_scale_black_24dp"
+            android:title="@string/nav_menu_weight" />
+        <item
+            android:id="@+id/nav_bs"
+            android:icon="@drawable/ic_food_black_24dp"
+            android:title="@string/nav_menu_bs" />
+        <item
+            android:id="@+id/nav_prescription"
+            android:icon="@drawable/ic_needle_black_24dp"
+            android:title="@string/nav_menu_prescription" />
+
+    </group>
+    <group
+        android:checkableBehavior="all"
+        android:id="@+id/groupObservation">
+
+        <item
+            android:id="@+id/nav_observation"
+            android:icon="@drawable/ic_account_multiple_black_24dp"
+            android:title="@string/nav_menu_observation" />
+
+        <item
+            android:id="@+id/nav_permission"
+            android:icon="@drawable/ic_account_key_black_24dp"
+            android:title="@string/nav_menu_permission" />
+
+    </group>
+    <group
+        android:checkableBehavior="all"
+        android:id="@+id/groupAccount">
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_account_card_details_black_24dp"
+            android:title="@string/nav_menu_profile" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/nav_menu_settings" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_power_black_24dp"
+            android:title="@string/nav_menu_logout" />
+
+    </group>
+
+</menu>

@@ -14,4 +14,26 @@
     <string name="txtFemale">Female</string>
     <string name="hintDOB">Date Of Birth</string>
     <string name="hintPasswordConfirm">Confirm Password</string>
+    <string name="alertTitle_Duplicated_Email">Duplicated email address</string>
+    <string name="alertMessage_Duplicated_Email">The email address you are trying to use has already existed. Please use another email address.</string>
+    <string name="alertButton_Close">Close</string>
+    <string name="alertTitle_Unknow_Error">Unknow error encountered</string>
+    <string name="title_activity_main">ActivityMain</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="alertTitle_Invalid_Login">Invalid emal/password pair</string>
+    <string name="alertMessage_Invalid_Login">Sorry, we cannot find any account with the supplied email/password pair. Please check your email/password input and try again.</string>
+    <string name="nav_menu_overview">Overview</string>
+    <string name="nav_menu_bp">Blood Pressure</string>
+    <string name="nav_menu_weight">Body Weight</string>
+    <string name="nav_menu_bs">Blood Sugar</string>
+    <string name="nav_menu_prescription">Prescription</string>
+    <string name="nav_menu_observation">Observation</string>
+    <string name="nav_menu_profile">Profile</string>
+    <string name="nav_menu_permission">Permission</string>
+    <string name="nav_menu_settings">Settings</string>
+    <string name="nav_menu_logout">Sign out</string>
 </resources>

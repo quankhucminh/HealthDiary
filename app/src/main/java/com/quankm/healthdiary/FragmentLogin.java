@@ -1,6 +1,9 @@
 package com.quankm.healthdiary;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -13,9 +16,15 @@ import android.widget.EditText;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.quankm.healthdiary.database.DBHelper;
 import com.quankm.healthdiary.pojo.User;
 import com.quankm.healthdiary.utils.JSONBuilder;
 import com.quankm.healthdiary.utils.PasswordUtil;
+import com.quankm.healthdiary.utils.SharedPrefUtil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
@@ -75,7 +84,7 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
         }
     }
 
-    public void login(User user){
+    public void login(final User user){
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("userLoginJSON", JSONBuilder.buildUserLoginJSON(user));
@@ -84,8 +93,37 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
-                    String responseJSON = new String(responseBody,"UTF-8");
-                    Log.i(TAG, "Login - onSuccess: "+responseJSON);
+                    String strResponse = new String(responseBody,"UTF-8");
+                    try {
+                        JSONArray arrayJSON = new JSONArray(strResponse);
+                        JSONObject userJSON = (JSONObject) arrayJSON.get(0);
+                        long _id = userJSON.getLong(DBHelper.USER_COL_ID);
+                        if(_id>0){
+                            User userTemp = JSONBuilder.parseUserFromJSON(userJSON);
+                            if(userTemp.get_id() > 0){
+                                SharedPrefUtil sharedPrefUtil = new SharedPrefUtil(getActivity());
+                                sharedPrefUtil.saveUserPreference(userTemp);
+                            }
+
+                            Intent intent = new Intent(getActivity(),ActivityMain.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            getActivity().finish();
+                        }
+                        else {
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle(R.string.alertTitle_Invalid_Login)
+                                    .setMessage(R.string.alertMessage_Invalid_Login)
+                                    .setPositiveButton(R.string.alertButton_Close, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+
+                                        }
+                                    }).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
