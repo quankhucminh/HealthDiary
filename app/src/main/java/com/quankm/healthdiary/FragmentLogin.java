@@ -5,13 +5,18 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -19,6 +24,7 @@ import com.loopj.android.http.RequestParams;
 import com.quankm.healthdiary.database.DBHelper;
 import com.quankm.healthdiary.pojo.User;
 import com.quankm.healthdiary.utils.JSONBuilder;
+import com.quankm.healthdiary.utils.NetworkUtil;
 import com.quankm.healthdiary.utils.PasswordUtil;
 import com.quankm.healthdiary.utils.SharedPrefUtil;
 
@@ -37,11 +43,12 @@ import cz.msebera.android.httpclient.Header;
 public class FragmentLogin extends Fragment implements Button.OnClickListener {
 
     private static final String TAG = "quankm";
-    private Button btnSignUp;
+    private TextView tvSignUp;
     private Button btnSignIn;
     private EditText edtEmail;
     private EditText edtPassword;
     private ActivityLogin activity;
+    private CoordinatorLayout coordinatorLayout;
 
 
     public FragmentLogin() {
@@ -56,13 +63,14 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
         View root = inflater.inflate(R.layout.fragment_login, container, false);
 
         activity = (ActivityLogin) getActivity();
-        btnSignUp = (Button) root.findViewById(R.id.btnSignUp);
+        tvSignUp = (TextView) root.findViewById(R.id.tvSignUp);
         btnSignIn = (Button) root.findViewById(R.id.btnSignIn);
         edtEmail = (EditText) root.findViewById(R.id.edtEmail);
         edtPassword = (EditText) root.findViewById(R.id.edtPassword);
+        coordinatorLayout = (CoordinatorLayout) getActivity().findViewById(R.id.coordinatorLayout);
 
         btnSignIn.setOnClickListener(this);
-        btnSignUp.setOnClickListener(this);
+        tvSignUp.setOnClickListener(this);
 
         return root;
     }
@@ -71,14 +79,19 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnSignIn:
-                String email = edtEmail.getText().toString();
-                String password = PasswordUtil.hashPassword(edtPassword.getText().toString());
-                User user = new User();
-                user.setEmail(email);
-                user.setPassword(password);
-                login(user);
+                if(NetworkUtil.isConnected(getActivity())){
+                    String email = edtEmail.getText().toString();
+                    String password = PasswordUtil.hashPassword(edtPassword.getText().toString());
+                    User user = new User();
+                    user.setEmail(email);
+                    user.setPassword(password);
+                    login(user);
+                }
+                else {
+                    Snackbar.make(coordinatorLayout,R.string.snack_no_internet,Snackbar.LENGTH_LONG).show();
+                }
                 break;
-            case R.id.btnSignUp:
+            case R.id.tvSignUp:
                 activity.displaySignUp();
                 break;
         }
@@ -135,6 +148,4 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
             }
         });
     }
-
-
 }
