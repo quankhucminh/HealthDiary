@@ -13,8 +13,8 @@
         android:layout_height="110dp"
         android:layout_above="@+id/layoutForm"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="90dp"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/ic_main_48dp" />
 
     <LinearLayout
         android:id="@+id/layoutForm"
@@ -22,14 +22,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="100dp"
         android:background="@drawable/background_rect_rounded"
         android:elevation="@dimen/windowElevation"
         android:orientation="vertical"
-        android:paddingBottom="32dp"
-        android:paddingEnd="32dp"
-        android:paddingStart="32dp"
-        android:paddingTop="32dp">
+        android:padding="16dp"
+        >
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/input_layout_email"
