@@ -53,5 +53,6 @@
     <string name="validate_empty_DOB">Please enter your date of birth</string>
     <string name="validate_invalid_DOB">Please enter a valid date of birth</string>
     <string name="validate_empty_sex">Please choose your sex</string>
+    <string name="main_panel_title_bp">Latest blood pressure record</string>
 
 </resources>
