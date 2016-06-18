@@ -20,18 +20,100 @@
             app:layout_scrollFlags="scroll|enterAlways" />
     </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
+    <RelativeLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragmentContainer"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@drawable/ic_power_white_36dp"
-        />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_above="@+id/layoutForm"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="60dp"
+            android:src="@drawable/ic_main_48dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/background_rect_rounded"
+            android:elevation="@dimen/windowElevation"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:transitionName="@string/activity_form_trans"
+            >
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:errorTextAppearance="@style/TextStyleEditTextLayout"
+                app:hintTextAppearance="@style/TextStyleEditTextLayout">
+
+                <EditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:ems="10"
+                    android:hint="@string/hintEmail"
+                    android:inputType="textEmailAddress"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:errorTextAppearance="@style/TextStyleEditTextLayout"
+                app:hintTextAppearance="@style/TextStyleEditTextLayout">
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
+                    android:ems="10"
+                    android:hint="@string/hintPassword"
+                    android:inputType="textPassword" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:clickable="true"
+                android:text="@string/tvSignUp"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAccent"
+                android:layout_marginBottom="32dp"
+                android:transitionName="@string/activity_text_trans"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:src="@drawable/ic_check_white_36dp"
+            app:layout_anchorGravity="bottom|center"
+            app:layout_anchor="@id/layoutForm"
+            android:transitionName="@string/activity_fab_trans"
+            />
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:id="@+id/progressFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"/>
 </android.support.design.widget.CoordinatorLayout>

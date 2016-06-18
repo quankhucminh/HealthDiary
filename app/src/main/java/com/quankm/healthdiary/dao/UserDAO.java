@@ -1,10 +1,13 @@
 package com.quankm.healthdiary.dao;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -37,15 +40,16 @@ public class UserDAO {
         this.context = context;
     }
 
-    public void insert(final User user) {
+    public void insert(final User user, final ProgressDialog pDialog) {
 
         AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
+        final RequestParams params = new RequestParams();
         params.put("userCreateJSON", JSONBuilder.buildUserCreateJSON(user));
 
         client.post("http://healthdiary.esy.es/insert_user.php", params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                pDialog.hide();
                 try {
                     String strResponse = new String(responseBody,"UTF-8");
                     try {
@@ -96,6 +100,7 @@ public class UserDAO {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                pDialog.hide();
                 Log.i(TAG, "Insert User onFailure: "+statusCode);
             }
         });

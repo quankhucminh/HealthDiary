@@ -28,6 +28,8 @@
             android:name=".database.HealthDataProvider"
             android:authorities="com.quankm.healthdiary"
             android:exported="false" />
+
+        <activity android:name=".ActivitySignUp"></activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
@@ -44,7 +45,7 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
 
     private static final String TAG = "quankm";
     private TextView tvSignUp;
-    private Button btnSignIn;
+    private FloatingActionButton fabSignIn;
     private EditText edtEmail;
     private EditText edtPassword;
     private ActivityLogin activity;
@@ -64,12 +65,12 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
 
         activity = (ActivityLogin) getActivity();
         tvSignUp = (TextView) root.findViewById(R.id.tvSignUp);
-        btnSignIn = (Button) root.findViewById(R.id.btnSignIn);
+        fabSignIn = (FloatingActionButton) getActivity().findViewById(R.id.fabSignIn);
         edtEmail = (EditText) root.findViewById(R.id.edtEmail);
         edtPassword = (EditText) root.findViewById(R.id.edtPassword);
         coordinatorLayout = (CoordinatorLayout) getActivity().findViewById(R.id.coordinatorLayout);
 
-        btnSignIn.setOnClickListener(this);
+        fabSignIn.setOnClickListener(this);
         tvSignUp.setOnClickListener(this);
 
         return root;
@@ -78,7 +79,7 @@ public class FragmentLogin extends Fragment implements Button.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnSignIn:
+            case R.id.fabSignIn:
                 if(NetworkUtil.isConnected(getActivity())){
                     String email = edtEmail.getText().toString();
                     String password = PasswordUtil.hashPassword(edtPassword.getText().toString());

@@ -38,4 +38,20 @@
     <string name="nav_menu_logout">Sign out</string>
     <string name="snack_no_internet">Please connect to the Internet</string>
     <string name="tvSignUp">Not a member? Sign up now.</string>
+
+    <string name="activity_fab_trans">activity_fab_transition</string>
+    <string name="activity_form_trans">activity_form_transition</string>
+    <string name="activity_text_trans">activity_text_transition</string>
+    <string name="validate_empty_email">Please enter your email address</string>
+    <string name="validate_invalid_email">Please enter a valid email address</string>
+    <string name="validate_empty_password">Please enter your password</string>
+    <string name="validate_short_password">Password must contains at least 8 characters</string>
+    <string name="validate_empty_first_name">Please enter your first name</string>
+    <string name="validate_invalid_first_name">Please enter your real first name</string>
+    <string name="validate_empty_last_name">Please enter your last name</string>
+    <string name="validate_invalid_last_name">Please enter your real last name</string>
+    <string name="validate_empty_DOB">Please enter your date of birth</string>
+    <string name="validate_invalid_DOB">Please enter a valid date of birth</string>
+    <string name="validate_empty_sex">Please choose your sex</string>
+
 </resources>
